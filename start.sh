@@ -1,15 +1,11 @@
 #!/bin/sh
-apk update && apk add --no-cache linux-headers git make gcc
+apk update && apk add --no-cache wget openssl ca-certificates
+VERSION=${VERSION:-v0.1.7}
 mkdir -p /shared /tmp/download
-
-echo "Grabbing golang/dep"
-go get -u github.com/golang/dep/cmd/dep
-
-echo "Grabbing lyft/cni-ipvlan-vpc-k8s"
-go get github.com/lyft/cni-ipvlan-vpc-k8s
-
-echo "Making cni-ipvlan-vpc-k8s"
-cd $GOPATH/src/github.com/lyft/cni-ipvlan-vpc-k8s
-make build
-
-cp cni-ipvlan-vpc-k8s-* /shared
+cd /var/tmp
+echo "Install $VERSION/bin/linux/amd64/$i"
+wget -q https://github.com/lyft/cni-ipvlan-vpc-k8s/releases/download/$VERSION/cni-ipvlan-vpc-k8s-linux-amd64-$VERSION.tar.gz
+tar -xvzf cni-ipvlan-vpc-k8s-linux-amd64-$VERSION.tar.gz
+rm cni-ipvlan-vpc-k8s-linux-amd64-$VERSION.tar.gz
+cp ./* /shared
+rm -rf /tmp/download
