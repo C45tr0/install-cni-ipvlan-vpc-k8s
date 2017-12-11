@@ -1,5 +1,5 @@
 #!/bin/sh
-apk update && apk add --no-cache git make gcc
+apk update && apk add --no-cache linux-headers git make gcc
 mkdir -p /shared /tmp/download
 
 echo "Grabbing golang/dep"
