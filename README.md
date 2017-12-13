@@ -11,5 +11,5 @@ $ docker run --rm -v /opt/bin/cni-ipvlan-vpc-k8s:/shared c45tr0/install-cni-ipvl
 ```
 * Install specific version
 ```
-$ docker run --env VERSION="v1.4.3" --rm -v /opt/bin/cni-ipvlan-vpc-k8s:/shared c45tr0/install-cni-ipvlan-vpc-k8s
+$ docker run --env VERSION="v0.1.7" --rm -v /opt/bin/cni-ipvlan-vpc-k8s:/shared c45tr0/install-cni-ipvlan-vpc-k8s
 ```
